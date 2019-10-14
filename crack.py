@@ -1,4 +1,37 @@
+# -*- coding: utf-8 -*-
 
+import os, sys, time, datetime, random, hashlib, re, threading, json, getpass, urllib, requests, mechanize
+from multiprocessing.pool import ThreadPool
+try:
+    import mechanize
+except ImportError:
+    os.system('pip2 install mechanize')
+else:
+    try:
+        import requests
+    except ImportError:
+        os.system('pip2 install requests')
+
+from requests.exceptions import ConnectionError
+from mechanize import Browser
+reload(sys)
+sys.setdefaultencoding('utf8')
+br = mechanize.Browser()
+br.set_handle_robots(False)
+br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
+br.addheaders = [('User-Agent', 'Opera/9.80 (Android; Opera Mini/36.2.2254/119.132; U; id) Presto/2.12.423 Version/12.16')]
+
+
+def keluar():
+    print '\x1b[1;91m[!] Tutup'
+    os.sys.exit()
+
+
+def jalan(z):
+    for e in z + '\n':
+        sys.stdout.write(e)
+        sys.stdout.flush()
+        time.sleep(0.01)
 ôL`\c           @   s!   d  d l  Z  e  j d ƒ d Ud S(   iÿÿÿÿNsùe c        Fq @   sˆW d  d l  Z  d d d d d d d d	 d
  d d d
  d d d d d d d d d d d d d d d d d d d d d d  d! d" d# d$ d% d& d' d( d d) d* d+ d, d- d. d/ d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 d: d; d< d d= d d> d? d@ dA dB dC dD dE dF dA dG dH dI dJ d d dK dL d@ dM dI dN dO d% dP dQ dR dS dT d+ dU dV dW d dH dX d dY dZ dV d[ dR d\ d# d] d^ d_ d` dF d> da d db dH dc d dd d< de df dg da dh di d] dj d[ dk dl dm dn do dp dq dr ds dt du du dv dw dx dy dz d{ d| dr d} d~ d d€ dr d d d d‚ dQ dƒ d d„ d… d† dG d‡ d} d dˆ d> d‰ d d dŠ dn d‹ dŒ df d) d
